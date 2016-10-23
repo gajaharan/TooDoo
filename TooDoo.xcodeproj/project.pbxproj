@@ -16,6 +16,7 @@
 		1B9DF85C1DBBEC34009E763F /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9DF85B1DBBEC34009E763F /* AddTaskViewController.m */; };
 		1B9DF85F1DBBEC58009E763F /* DetailTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9DF85E1DBBEC58009E763F /* DetailTaskViewController.m */; };
 		1B9DF8621DBBEC6D009E763F /* EditTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9DF8611DBBEC6D009E763F /* EditTaskViewController.m */; };
+		1BF06EE21DBC3E2600AAD9AD /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF06EE11DBC3E2600AAD9AD /* Task.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,9 @@
 		1B9DF85E1DBBEC58009E763F /* DetailTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailTaskViewController.m; path = ../DetailTaskViewController.m; sourceTree = "<group>"; };
 		1B9DF8601DBBEC6D009E763F /* EditTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTaskViewController.h; sourceTree = "<group>"; };
 		1B9DF8611DBBEC6D009E763F /* EditTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTaskViewController.m; sourceTree = "<group>"; };
+		1BF06EDE1DBC3C7300AAD9AD /* TooDoo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TooDoo-Prefix.pch"; sourceTree = "<group>"; };
+		1BF06EE01DBC3E2600AAD9AD /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		1BF06EE11DBC3E2600AAD9AD /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 		1B9DF8411DBBEB91009E763F /* TooDoo */ = {
 			isa = PBXGroup;
 			children = (
+				1BF06EDF1DBC3DFB00AAD9AD /* model */,
 				1B9DF8591DBBEBED009E763F /* Controller */,
 				1B9DF8451DBBEB91009E763F /* AppDelegate.h */,
 				1B9DF8461DBBEB91009E763F /* AppDelegate.m */,
@@ -97,9 +102,19 @@
 				1B9DF85D1DBBEC58009E763F /* DetailTaskViewController.h */,
 				1B9DF85E1DBBEC58009E763F /* DetailTaskViewController.m */,
 				1B9DF8601DBBEC6D009E763F /* EditTaskViewController.h */,
+				1BF06EDE1DBC3C7300AAD9AD /* TooDoo-Prefix.pch */,
 				1B9DF8611DBBEC6D009E763F /* EditTaskViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		1BF06EDF1DBC3DFB00AAD9AD /* model */ = {
+			isa = PBXGroup;
+			children = (
+				1BF06EE01DBC3E2600AAD9AD /* Task.h */,
+				1BF06EE11DBC3E2600AAD9AD /* Task.m */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BF06EE21DBC3E2600AAD9AD /* Task.m in Sources */,
 				1B9DF84A1DBBEB91009E763F /* ViewController.m in Sources */,
 				1B9DF85C1DBBEC34009E763F /* AddTaskViewController.m in Sources */,
 				1B9DF8471DBBEB91009E763F /* AppDelegate.m in Sources */,
@@ -289,6 +305,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/TooDoo-Prefix.pch";
 				INFOPLIST_FILE = TooDoo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gajaharan.TooDoo;
@@ -300,6 +318,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/TooDoo-Prefix.pch";
 				INFOPLIST_FILE = TooDoo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gajaharan.TooDoo;
@@ -326,6 +346,7 @@
 				1B9DF8581DBBEB91009E763F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

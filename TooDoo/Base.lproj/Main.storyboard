@@ -51,10 +51,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="EFp-8E-Jsk">
-                        <barButtonItem key="leftBarButtonItem" title="Reorder" id="EKw-um-Ggl"/>
-                        <barButtonItem key="rightBarButtonItem" title="AddTask" id="E80-0p-bjS"/>
+                        <barButtonItem key="leftBarButtonItem" title="Reorder" id="EKw-um-Ggl">
+                            <connections>
+                                <action selector="reorderBarButtonPressed:" destination="BYZ-38-t0r" id="Giu-ai-mxZ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="AddTask" id="E80-0p-bjS">
+                            <connections>
+                                <action selector="addTaskBarButtonItemPressed:" destination="BYZ-38-t0r" id="Ky0-x5-tmD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="tableView" destination="IWc-qJ-dOn" id="IsH-6B-iQX"/>
                         <segue destination="MdR-Qt-iuo" kind="modal" identifier="toAddTaskViewControllerSegue" id="It5-un-pER"/>
                         <segue destination="1Zj-Zr-uQC" kind="push" identifier="toDetailTaskViewControllerSegue" id="59H-Wc-Lio"/>
                     </connections>
@@ -100,10 +109,17 @@
                         <barButtonItem title="Item" id="wTh-Fn-gR1"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Tasks Details" id="j7B-Ni-3Gk">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="ARG-cW-ekV"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="ARG-cW-ekV">
+                            <connections>
+                                <action selector="editBarButtonPressed:" destination="1Zj-Zr-uQC" id="Bwm-gP-kHz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="dateLabel" destination="U9K-IH-tIQ" id="4mo-CZ-5o8"/>
+                        <outlet property="detailLabel" destination="L3s-oi-vpZ" id="0Jd-Yd-PGz"/>
+                        <outlet property="titleLabel" destination="5N1-sH-LMN" id="4gV-Zc-Iaf"/>
                         <segue destination="t7c-68-ReH" kind="push" identifier="toEditTaskViewControllerSegue" id="gFK-Yd-67V"/>
                     </connections>
                 </viewController>
@@ -144,8 +160,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="kvg-6e-1Tk">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="eEZ-iZ-5gd"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="eEZ-iZ-5gd">
+                            <connections>
+                                <action selector="saveBarButtonPressed:" destination="t7c-68-ReH" id="Ins-o8-lXz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="6mX-xG-DkA" id="rVG-Pe-DFX"/>
+                        <outlet property="textField" destination="Wmv-sS-kh1" id="58z-83-db5"/>
+                        <outlet property="textView" destination="X0d-FJ-Qr0" id="KJu-be-0IS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wKR-ik-hen" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -166,10 +191,16 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85o-w5-R8r">
                                 <rect key="frame" x="36" y="35" width="64" height="30"/>
                                 <state key="normal" title="Add Task"/>
+                                <connections>
+                                    <action selector="addTaskButtonPressed:" destination="MdR-Qt-iuo" eventType="touchUpInside" id="eAJ-sK-KEQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sde-47-KI2">
                                 <rect key="frame" x="504" y="35" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="MdR-Qt-iuo" eventType="touchUpInside" id="o6y-XY-msS"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wro-RE-hsL">
                                 <rect key="frame" x="36" y="137" width="516" height="171"/>
@@ -191,6 +222,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="KT0-ZG-p84" id="99L-4N-4fP"/>
+                        <outlet property="textField" destination="Uad-Nl-gIl" id="ov1-mv-DkN"/>
+                        <outlet property="textView" destination="Wro-RE-hsL" id="jtx-N7-xYY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="er1-qQ-Wi8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
