@@ -34,9 +34,22 @@
 }
 */
 
+-(Task *)returnNewTaskObject {
+    Task *task = [[Task alloc]init];
+    task.title = self.textField.text;
+    task.decription = self.textView.text;
+    task.date = self.datePicker.date;
+    task.isCompleted = NO;
+    
+    return task;
+}
+
 - (IBAction)addTaskButtonPressed:(UIButton *)sender {
+    [self.delegate didAddTask:[self returnNewTaskObject]];
+    
 }
 
 - (IBAction)cancelButtonPressed:(UIButton *)sender {
+    [self.delegate didCancel];
 }
 @end
