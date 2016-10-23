@@ -43,6 +43,12 @@
         AddTaskViewController *addTaskViewController = segue.destinationViewController;
         addTaskViewController.delegate = self;
     }
+    else if ([segue.destinationViewController isKindOfClass:[DetailTaskViewController class]]) {
+        DetailTaskViewController *detailTaskViewController = segue.destinationViewController;
+        NSIndexPath *path = sender;
+        Task *taskObject = self.taskObjects[path.row];
+        detailTaskViewController.task = taskObject;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -155,5 +161,31 @@
     Task * task = self.taskObjects[indexPath.row];
     [self updateCompletionOfTask:task forIndexPath:indexPath];
     
+}
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.taskObjects removeObjectAtIndex:indexPath.row];
+        
+        NSMutableArray *newTaskObjectsData = [[NSMutableArray alloc] init];
+        
+        for(Task *task in self.taskObjects) {
+            [newTaskObjectsData addObject:[self taskObjectAsAPropertyList:task]];
+            
+        }
+        
+        [[NSUserDefaults standardUserDefaults] setObject:newTaskObjectsData forKey:TASK_OBJECTS_KEY];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"toDetailTaskViewControllerSegue" sender:indexPath];
 }
 @end
