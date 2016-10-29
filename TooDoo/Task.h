@@ -10,8 +10,8 @@
 
 @interface Task : NSObject
 
-@property (strong, nonatomic) NSString *title;
-@property (strong, nonatomic) NSString *decription;
+@property (strong, nonatomic) NSString *taskTitle;
+@property (strong, nonatomic) NSString *taskDescription;
 @property (strong, nonatomic) NSDate *date;
 @property (nonatomic) BOOL isCompleted;
 

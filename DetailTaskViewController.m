@@ -18,8 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.titleLabel.text = self.task.title;
-    self.detailLabel.text = self.task.description;
+    self.titleLabel.text = self.task.taskTitle;
+    self.detailLabel.text = self.task.taskDescription;
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
@@ -42,6 +42,25 @@
 }
 */
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.destinationViewController isKindOfClass: [EditTaskViewController class]]) {
+        EditTaskViewController *editTaskViewController = segue.destinationViewController;
+        editTaskViewController.task = self.task;
+        editTaskViewController.delegate = self;
+    }
+}
+
 - (IBAction)editBarButtonPressed:(UIBarButtonItem *)sender {
+    [self performSegueWithIdentifier:@"toEditTaskViewControllerSegue" sender:nil];
+}
+
+-(void) didUpdateTask {
+    self.titleLabel.text = self.task.taskTitle;
+    self.detailLabel.text = self.task.taskDescription;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    NSString *stringFromDate = [formatter stringFromDate:self.task.date];
+    self.dateLabel.text = stringFromDate;
+    [self.navigationController popViewControllerAnimated:YES];
+    [self.delegate updateTask];
 }
 @end

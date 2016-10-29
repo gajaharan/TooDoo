@@ -102,8 +102,8 @@
 				1B9DF85D1DBBEC58009E763F /* DetailTaskViewController.h */,
 				1B9DF85E1DBBEC58009E763F /* DetailTaskViewController.m */,
 				1B9DF8601DBBEC6D009E763F /* EditTaskViewController.h */,
-				1BF06EDE1DBC3C7300AAD9AD /* TooDoo-Prefix.pch */,
 				1B9DF8611DBBEC6D009E763F /* EditTaskViewController.m */,
+				1BF06EDE1DBC3C7300AAD9AD /* TooDoo-Prefix.pch */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
